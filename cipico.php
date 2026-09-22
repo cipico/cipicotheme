@@ -39,7 +39,9 @@ function cipico_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle) {
       // The FPS JS helper (defines window.FPS, used by extensions such as
       // receipts/mailings/cipico for FPS.Spinner) must be loaded globally, as
       // the legacy Drupal theme did via its global-styling library. spin.js is
-      // a dependency of fpsHelper.min.js.
+      // a dependency of fpsHelper.min.js. jquery-shim re-publishes the
+      // jQuery global (cj/CRM.$ on standalone) which fpsHelper relies on.
+      $bundle->addScriptFile($myExt, 'js/jquery-shim.js', ['weight' => 99, 'translate' => FALSE]);
       $bundle->addScriptFile($myExt, 'js/spin.js', ['weight' => 100, 'translate' => FALSE]);
       $bundle->addScriptFile($myExt, 'js/fpsHelper.min.js', ['weight' => 101, 'translate' => FALSE]);
       break;
