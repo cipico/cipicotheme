@@ -25,11 +25,23 @@ function cipico_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle) {
       break;
 
     case 'cipico:coreStyles':
+      $bundle->addStyleFile($myExt, 'assets/mystyles.css', ['weight' => 100]);
+      $bundle->addStyleFile($myExt, 'assets/overrides.css', ['weight' => 101]);
+      $bundle->addStyleFile($myExt, 'js/fpsHelper.min.css', ['weight' => 102]);
+      $bundle->addStyleFile($myExt, 'js/helper.css', ['weight' => 103]);
+      break;
+
     case 'cipico:coreResources':
       $bundle->addStyleFile($myExt, 'assets/mystyles.css', ['weight' => 100]);
       $bundle->addStyleFile($myExt, 'assets/overrides.css', ['weight' => 101]);
       $bundle->addStyleFile($myExt, 'js/fpsHelper.min.css', ['weight' => 102]);
       $bundle->addStyleFile($myExt, 'js/helper.css', ['weight' => 103]);
+      // The FPS JS helper (defines window.FPS, used by extensions such as
+      // receipts/mailings/cipico for FPS.Spinner) must be loaded globally, as
+      // the legacy Drupal theme did via its global-styling library. spin.js is
+      // a dependency of fpsHelper.min.js.
+      $bundle->addScriptFile($myExt, 'js/spin.js', ['weight' => 100, 'translate' => FALSE]);
+      $bundle->addScriptFile($myExt, 'js/fpsHelper.min.js', ['weight' => 101, 'translate' => FALSE]);
       break;
   }
 }
