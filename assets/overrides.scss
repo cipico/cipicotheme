@@ -3,3 +3,19 @@
 @import "../sass/utilities/functions";
 
 // Your theme overrides.
+// Brand favicon in front of the CIPICO menu entry (class set on the nav row by
+// de.cipico.civicall).
+.crm-i.cipico-favicon,
+i.cipico-favicon {
+  width: 18px;
+  height: 18px;
+  background-image: url(cipico-favicon.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 16px 16px;
+  vertical-align: middle;
+
+  &:before {
+    content: none !important;
+  }
+}

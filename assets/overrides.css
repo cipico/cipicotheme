@@ -63,3 +63,22 @@
 .breadcrumb li:first-child a {
   padding-left: 0;
 }
+
+/* Brand favicon in front of the CIPICO menu entry. The navigation row carries
+   the "cipico-favicon" class (set by de.cipico.civicall); CiviCRM renders the
+   icon as <i class="crm-i cipico-favicon"></i> before the label. */
+.crm-i.cipico-favicon,
+i.cipico-favicon {
+  width: 18px;
+  height: 18px;
+  background-image: url(cipico-favicon.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 16px 16px;
+  vertical-align: middle;
+}
+
+.crm-i.cipico-favicon:before,
+i.cipico-favicon:before {
+  content: none !important;
+}
