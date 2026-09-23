@@ -19,3 +19,13 @@ i.cipico-favicon {
     content: none !important;
   }
 }
+
+/* CIPICO brand icon as the main-menu (menubar toggle) icon, replacing the
+   CiviCRM logo. The markup is <span class="crm-menu-logo"> inside
+   #civicrm-menu-nav .crm-menubar-toggle-btn (see crm.menubar.js). */
+#civicrm-menu-nav .crm-menubar-toggle-btn span.crm-menu-logo {
+  background-image: url(cipico-favicon.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
